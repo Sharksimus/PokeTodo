@@ -10,7 +10,7 @@ Creada para que ningún jugador pague de más. 💚
 
 ## 🔗 Ver el comparador en vivo
 
-👉 **[sharksimus.github.io/pokemon-precios-chile-series1-data](https://sharksimus.github.io/pokemon-precios-chile-series1-data)**
+👉 **[sharksimus.github.io/pokemon-precios-chile-series1-data](https://sharksimus.github.io/PokeTodo)**
 
 ---
 
@@ -51,7 +51,7 @@ Toda la comunidad se beneficia cuando los datos están actualizados. 🙌
 
 ## 📍 Cobertura actual
 
-Actualmente cubre **39 tiendas** en Chile, incluyendo tiendas físicas y online.
+Actualmente cubre **42 tiendas** en Chile, incluyendo tiendas físicas y online.
 
 ---
 
