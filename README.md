@@ -1,71 +1,65 @@
-# 🃏 Comparador de Precios Pokémon Chile — First Partner Series 1
+# 🃏 Comparador de Precios Pokémon TCG Chile
 
-**Herramienta comunitaria para comparar precios de productos Pokémon TCG en tiendas chilenas.**  
+**Herramienta comunitaria para comparar precios de productos Pokémon TCG en tiendas chilenas.**
+
 Creada para que ningún jugador pague de más. 💚
-
-> 💡 **Idea y proyecto original por [Sharksimus](https://github.com/Sharksimus)**  
-> Construido con la ayuda de la comunidad Pokémon TCG Chile.
 
 ---
 
-## 🔗 Ver el comparador en vivo
+### 🚀 [Ver Comparador en Vivo](https://sharksimus.github.io/PokeTodo/)
 
-👉 **[sharksimus.github.io/pokemon-precios-chile-series1-data](https://sharksimus.github.io/PokeTodo)**
+**Comparador actualizado — Abril 2026**
 
 ---
 
 ## 📦 Productos disponibles
 
-| Producto | Estado |
-|---|---|
-| Illustrator: First Partner Series 1 | ✅ Disponible |
-| Illustrator: First Partner Series 2 | 🔜 Próximamente |
+| Producto                          | Estado          | Enlace |
+|-----------------------------------|-----------------|--------|
+| **First Partner — Series 1**      | ✅ Disponible   | [Ver precios](https://sharksimus.github.io/PokeTodo/series1.html) |
+| **First Partner — Series 2**      | 🔄 En recolección | [Español](https://sharksimus.github.io/PokeTodo/series2esp.html) • [English](https://sharksimus.github.io/PokeTodo/series2eng.html) |
 
 ---
 
-## 🧭 ¿Cómo funciona?
+## ¿Cómo funciona?
 
-El comparador muestra el precio de venta de cada tienda versus el MSRP (precio sugerido oficial), clasificando cada una en niveles:
+El comparador muestra el **precio de venta** de cada tienda versus el **MSRP oficial**, y clasifica el sobreprecio:
 
-| Nivel | Rango sobre MSRP | Significado |
-|---|---|---|
-| 🟢 Al MSRP | 0 – 15% | Precio justo |
-| 🟡 Moderado | 15 – 30% | Aceptable |
-| 🟠 Medianamente alto | 30 – 36% | Cuidado |
-| 🔴 Alto | 36 – 68.5% | Sobreprecio importante |
-| 🔴 Muy alto | +68.5% | Evitar |
+- 🟢 **Justo** → 0 – 15% sobre MSRP  
+- 🟡 **Moderado** → 15 – 30%  
+- 🟠 **Medianamente alto** → 30 – 36%  
+- 🔴 **Alto / Muy alto** → +36%
 
 ---
 
-## 🤝 ¿Cómo contribuir?
+## 🤝 Cómo contribuir
 
-¿Encontraste una tienda que no está en la lista? ¿Cambió un precio?
+¿Viste un precio diferente o una tienda nueva?
 
-1. Abre un **Issue** en este repositorio con el nombre de la tienda y el precio actualizado
-2. O envía un **Pull Request** editando el archivo `index.html`
-3. También puedes contactarme directamente vía GitHub
+1. Abre un **Issue** en este repositorio  
+2. Envía un **Pull Request**  
+3. O contáctame directamente
 
-Toda la comunidad se beneficia cuando los datos están actualizados. 🙌
+¡Cada actualización ayuda a toda la comunidad! 🙌
 
 ---
 
 ## 📍 Cobertura actual
-
-Actualmente cubre **42 tiendas** en Chile, incluyendo tiendas físicas y online.
+- **42 tiendas** analizadas (físicas y online en Chile)
 
 ---
 
-## ⚠️ Aviso
+## ⚠️ Aviso importante
+Los precios cambian frecuentemente. Siempre verifica el precio final directamente en la tienda antes de comprar.
 
-Los precios se actualizan manualmente y pueden variar. Siempre verifica el precio final directamente en la tienda antes de comprar. Este proyecto no tiene afiliación con ninguna tienda ni con The Pokémon Company.
+Este proyecto **no tiene afiliación** con ninguna tienda ni con The Pokémon Company.
 
 ---
 
 ## 📄 Licencia
-
-MIT License — puedes usar, copiar y adaptar este proyecto libremente.  
-Si lo usas como base para otro país o región, ¡da crédito al proyecto original! 🙏
+MIT License — Libre de usar, copiar y adaptar.
 
 ---
 
-*Hecho con ❤️ para la comunidad Pokémon TCG Chile — por [Sharksimus](https://github.com/Sharksimus)*
+**Hecho con ❤️ para la comunidad Pokémon TCG Chile**  
+Proyecto por [Sharksimus](https://github.com/Sharksimus)
