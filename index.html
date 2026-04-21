@@ -1,365 +1,348 @@
 <!DOCTYPE html>
-<html lang="es"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Comparador de Precios Pokémon TCG Chile</title>
-<meta property="og:type" content="website"/>
-<meta property="og:title" content="Comparador de Precios Pokémon TCG Chile 🃏"/>
-<meta property="og:description" content="Compara precios de tiendas chilenas vs el MSRP oficial. Pokémon 30° Aniversario."/>
-<meta property="og:site_name" content="Pokémon TCG Chile — by Sharksimus"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
+<style>*{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;color:#1a1a18;min-height:100vh;background:#f5f5f3;position:relative}
 body::before{content:"";position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
   width:560px;height:560px;background-image:url("data:image/png;base64,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");
   background-size:contain;background-repeat:no-repeat;background-position:center;
   opacity:0.07;pointer-events:none;z-index:0}
 .header{position:relative;z-index:2;background:rgba(27,50,100,.97);padding:14px 24px;
-  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;
-  border-bottom:2px solid #f7c948}
-.header-left{display:flex;align-items:center;gap:12px}
-.header-icon{font-size:26px}
-.header-text h1{font-size:17px;font-weight:500;color:#fff}
-.header-text p{font-size:12px;color:rgba(255,255,255,.65);margin-top:1px}
-.badge-30{background:#f7c948;color:#1a2a4a;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;margin-left:6px;vertical-align:middle}
-.menu-btn{background:rgba(255,255,255,.1);border:1.5px solid rgba(247,201,72,.6);color:#f7c948;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;border-bottom:2px solid #f7c948}
+.hl{display:flex;align-items:center;gap:12px}
+.hi{font-size:24px}
+.ht h1{font-size:16px;font-weight:500;color:#fff}
+.ht p{font-size:11px;color:rgba(255,255,255,.6);margin-top:1px}
+.b30{background:#f7c948;color:#1a2a4a;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;margin-left:6px;vertical-align:middle}
+.mbtn{background:rgba(255,255,255,.1);border:1.5px solid rgba(247,201,72,.6);color:#f7c948;
   font-family:Arial,sans-serif;font-size:13px;font-weight:500;padding:8px 24px;border-radius:8px;
-  cursor:pointer;text-decoration:none;display:inline-block;text-align:center;
-  transition:background .15s,border-color .15s;white-space:nowrap}
-.menu-btn:hover{background:rgba(247,201,72,.15);border-color:#f7c948}
-.header-right{text-align:right;font-size:12px;color:rgba(255,255,255,.5);line-height:1.6}
-.header-right a{color:#f7c948;text-decoration:none}
-.outer{position:relative;z-index:1;display:grid;grid-template-columns:240px 1fr 240px;gap:20px;max-width:1300px;margin:0 auto;padding:24px}
-.side-card{background:#fff;border-radius:12px;border:.5px solid #d3d1c7;overflow:hidden;height:fit-content;position:sticky;top:20px}
-.side-title{padding:12px 14px;border-bottom:.5px solid #e8e6df;display:flex;align-items:center;gap:8px}
-.side-title-text{font-size:13px;font-weight:500;color:#1a1a18}
-.side-subtitle{font-size:11px;color:#888780;margin-top:2px}
-.center-col{min-width:0}
-.section-label{font-size:11px;font-weight:500;color:#888780;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+  text-decoration:none;display:inline-block;text-align:center;transition:background .15s;white-space:nowrap}
+.mbtn:hover{background:rgba(247,201,72,.2)}
+.hr{text-align:right;font-size:11px;color:rgba(255,255,255,.5);line-height:1.6}
+.hr a{color:#f7c948;text-decoration:none}
+.outer{position:relative;z-index:1;display:grid;grid-template-columns:230px 1fr 230px;gap:20px;max-width:1280px;margin:0 auto;padding:24px}
+.sc{background:#fff;border-radius:12px;border:.5px solid #d3d1c7;overflow:hidden;height:fit-content;position:sticky;top:20px}
+.st{padding:12px 14px;border-bottom:.5px solid #e8e6df;display:flex;align-items:center;gap:8px}
+.stt{font-size:13px;font-weight:500}.sts{font-size:11px;color:#888780;margin-top:2px}
+.cc{min-width:0}
+.sl{font-size:11px;font-weight:500;color:#888780;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.met{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.m{background:#fff;border-radius:8px;border:.5px solid #d3d1c7;padding:.8rem;text-align:center}
+.ml{font-size:11px;color:#888780;margin-bottom:3px}.mv{font-size:18px;font-weight:500}
+.prods{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.pc{background:#fff;border-radius:12px;border:.5px solid #d3d1c7;overflow:hidden;
+  text-decoration:none;color:inherit;display:block;transition:box-shadow .15s,transform .15s}
+.pc:hover{box-shadow:0 4px 16px rgba(0,0,0,.1);transform:translateY(-2px)}
+.piw{position:relative;background:#ddd;height:175px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.piw img{height:100%;width:100%;object-fit:cover;object-position:center top}
+.pb{position:absolute;top:8px;right:8px;font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px}
+.pl{background:#EAF3DE;color:#3B6D11}.pp{background:#FAEEDA;color:#854F0B}
+.cb{padding:12px}.cs{font-size:10px;color:#888780;margin-bottom:2px;text-transform:uppercase;letter-spacing:.04em}
+.ct{font-size:14px;font-weight:500;margin-bottom:6px}
+.cm{font-size:11px;color:#5f5e5a;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.cbt{display:flex;gap:6px;flex-wrap:wrap}
+.sb{font-size:11px;padding:4px 10px;border-radius:6px;border:.5px solid #d3d1c7;
+  background:#f5f5f3;color:#1a1a18;text-decoration:none;font-weight:500;transition:background .12s,color .12s}
+.sb:hover{background:#1b3264;color:#f7c948;border-color:#1b3264}
+.nb{background:#E6F1FB;border:.5px solid #B5D4F4;border-radius:8px;padding:10px 12px;
+  font-size:11px;color:#185FA5;margin:12px 14px;line-height:1.5}
+.container{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:24px}
 .metricas{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
 .metrica{background:#fff;border-radius:8px;border:.5px solid #d3d1c7;padding:.8rem;text-align:center}
-.metrica-label{font-size:11px;color:#888780;margin-bottom:3px}
-.metrica-valor{font-size:18px;font-weight:500}
-.productos{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.product-card{background:#fff;border-radius:12px;border:.5px solid #d3d1c7;overflow:hidden;
-  text-decoration:none;color:inherit;display:block;transition:box-shadow .15s,transform .15s}
-.product-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.1);transform:translateY(-2px)}
-.card-img-wrap{position:relative;background:#ddd;height:180px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.card-img-wrap img{height:100%;width:100%;object-fit:cover;object-position:center top}
-.card-badge{position:absolute;top:8px;right:8px;font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px}
-.badge-live{background:#EAF3DE;color:#3B6D11}
-.badge-partial{background:#FAEEDA;color:#854F0B}
-.card-body{padding:12px}
-.card-series{font-size:10px;color:#888780;margin-bottom:2px;text-transform:uppercase;letter-spacing:.04em}
-.card-title{font-size:14px;font-weight:500;margin-bottom:6px}
-.card-meta{font-size:11px;color:#5f5e5a;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-.card-btns{display:flex;gap:6px;flex-wrap:wrap}
-.sub-btn{font-size:11px;padding:4px 10px;border-radius:6px;border:.5px solid #d3d1c7;
-  background:#f5f5f3;color:#1a1a18;text-decoration:none;font-weight:500;transition:background .12s,color .12s}
-.sub-btn:hover{background:#1b3264;color:#f7c948;border-color:#1b3264}
+.metrica-label{font-size:11px;color:#888780;margin-bottom:3px}.metrica-valor{font-size:18px;font-weight:500}
+.graficos{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.grafico-card{background:#fff;border-radius:8px;border:.5px solid #d3d1c7;padding:16px}
+.grafico-titulo{font-size:13px;font-weight:500;color:#5f5e5a;margin-bottom:12px}
+.leyenda{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:#5f5e5a}
+.leyenda-item{display:flex;align-items:center;gap:5px}
+.leyenda-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.filtros{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;align-items:center}
+.filtros label{font-size:13px;color:#5f5e5a}
+.filtros select,.filtros input{font-size:13px;padding:6px 10px;border:.5px solid #d3d1c7;border-radius:6px;background:#fff;color:#1a1a18}
+.tabla-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:8px;overflow:hidden;border:.5px solid #d3d1c7}
+th{text-align:left;font-weight:500;font-size:12px;color:#fff;padding:10px 12px;background:#1b3264;cursor:pointer;user-select:none;white-space:nowrap}
+th:hover{background:#f7c948;color:#1a1a18}
+td{padding:8px 12px;border-bottom:.5px solid #e8e6df;white-space:nowrap}
+tr:last-child td{border-bottom:none}tr:hover td{background:#f5f5f3}
+.barra-wrap{background:#e8e6df;border-radius:4px;height:8px;width:80px;display:inline-block;vertical-align:middle}
+.barra-fill{height:8px;border-radius:4px}
+.tag{font-size:11px;padding:2px 8px;border-radius:6px;display:inline-block;white-space:nowrap}
+.tag-ok{background:#EAF3DE;color:#3B6D11}.tag-mid{background:#FAEEDA;color:#854F0B}
+.tag-medalt{background:#FAECE7;color:#993C1D}.tag-high{background:#FCEBEB;color:#A32D2D}
+.tag-muy{background:#f7c1c1;color:#791F1F}
+.contador{font-size:13px;color:#5f5e5a;margin-bottom:10px}
+.pending-label{font-size:12px;font-weight:500;color:#888780;text-transform:uppercase;letter-spacing:.05em;margin:24px 0 10px}
 .footer{position:relative;z-index:1;border-top:2px solid #f7c948;padding:14px 24px;
   text-align:center;font-size:12px;color:rgba(255,255,255,.5);background:rgba(27,50,100,.97)}
 .footer a{color:#f7c948;text-decoration:none}
-.note-box{background:#E6F1FB;border:.5px solid #B5D4F4;border-radius:8px;padding:10px 12px;
-  font-size:11px;color:#185FA5;margin:12px 14px;line-height:1.5}
-@media(max-width:900px){
-  .outer{grid-template-columns:1fr;}
-  .side-card{position:static;}
-  .metricas{grid-template-columns:repeat(2,1fr)}
-  .header{grid-template-columns:1fr;gap:8px}
-  .header-right{display:none}
-}
-</style></head><body>
-
+@media(max-width:900px){.outer{grid-template-columns:1fr}.sc{position:static}
+  .met,.metricas{grid-template-columns:repeat(2,1fr)}.prods{grid-template-columns:1fr}
+  .header{grid-template-columns:1fr;gap:8px}.hr{display:none}body::before{width:280px;height:280px}}</style></head><body>
 <div class="header">
-  <div class="header-left">
-    <div class="header-icon">🃏</div>
-    <div class="header-text">
-      <h1>Comparador de Precios Pokémon TCG Chile <span class="badge-30">30°</span></h1>
-      <p>Compara precios de tiendas chilenas vs el MSRP oficial</p>
-    </div>
-  </div>
-  <div style="display:flex;justify-content:center">
-    <a href="index.html" class="menu-btn">🏠 Página Principal</a>
-  </div>
-  <div class="header-right">
-    Proyecto por <a href="https://github.com/Sharksimus" target="_blank">Sharksimus</a><br>
-    para la comunidad TCG 🇨🇱
-  </div>
+  <div class="hl"><div class="hi">🃏</div><div class="ht">
+    <h1>Comparador de Precios Pokémon TCG Chile <span class="b30">30°</span></h1>
+    <p>Compara precios de tiendas chilenas vs el MSRP oficial</p>
+  </div></div>
+  <div style="display:flex;justify-content:center"><a href="index.html" class="mbtn">🏠 Página Principal</a></div>
+  <div class="hr">Proyecto por <a href="https://github.com/Sharksimus" target="_blank">Sharksimus</a><br>para la comunidad TCG 🇨🇱</div>
 </div>
-
 <div class="outer">
-
-  <!-- LEFT: Top 15 Ranking -->
-  <div class="side-card">
-    <div class="side-title">
-      <span style="font-size:20px">🏆</span>
-      <div>
-        <div class="side-title-text">Top 15 Mejores Precios</div>
-        <div class="side-subtitle">Promedio % sobre MSRP</div>
-      </div>
-    </div>
+  <div class="sc">
+    <div class="st"><span style="font-size:20px">🏆</span><div>
+      <div class="stt">Top 15 Mejores Precios</div><div class="sts">Promedio % sobre MSRP</div>
+    </div></div>
     
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center">🥇</div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Magicsur<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1+S2</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">-2.5%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center">🥈</div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">MundoCartas<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">0.0%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center">🥉</div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">@Akorgistore<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S2</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">0.0%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">4</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">top8<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1+S2</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">0.0%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">5</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Fenix Card Store<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">0.0%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">6</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Juegosenroque.cl<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1+S2</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">+0.1%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">7</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Geekers.cl<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1+S2</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">+5.0%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">8</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">HunterCard TCG<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1+S2</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">+5.0%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">9</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">TCG Family.cl<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1+S2</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">+5.0%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">10</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">PokeDals<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1+S2</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">+5.0%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">11</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">NianStore<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">+10.0%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">12</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Outlet TCG<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">+10.0%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">13</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">PokeStop.cl<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">+10.0%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">14</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Arcadia Collects<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">+10.1%</span></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">15</span></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Santo Games<span style="font-size:10px;color:#888780;background:#f1efe8;padding:1px 5px;border-radius:4px;margin-left:4px">S1+S2</span></div>
-      </div>
-      <div><span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">+12.5%</span></div>
-    </div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center">🥇</div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Magicsur</div>
+    <div style="font-size:10px;color:#b4b2a9">S1+S2</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">-2.5%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center">🥈</div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Top8</div>
+    <div style="font-size:10px;color:#b4b2a9">S2</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">0.0%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center">🥉</div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">PokeStore</div>
+    <div style="font-size:10px;color:#b4b2a9">S2</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">0.0%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">4</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Fenix Card Store</div>
+    <div style="font-size:10px;color:#b4b2a9">S1</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">0.0%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">5</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">MundoCartas</div>
+    <div style="font-size:10px;color:#b4b2a9">S1</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">0.0%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">6</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">@Akorgistore</div>
+    <div style="font-size:10px;color:#b4b2a9">S2</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">0.0%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">7</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">top8</div>
+    <div style="font-size:10px;color:#b4b2a9">S1+S2</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">0.0%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">8</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Juegosenroque.cl</div>
+    <div style="font-size:10px;color:#b4b2a9">S1+S2</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#3B6D11;font-weight:500">+0.1%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">9</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Geekers.cl</div>
+    <div style="font-size:10px;color:#b4b2a9">S1+S2</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#639922;font-weight:500">+5.0%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">10</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">TCG Family.cl</div>
+    <div style="font-size:10px;color:#b4b2a9">S1+S2</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#639922;font-weight:500">+5.0%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">11</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">PokeDals</div>
+    <div style="font-size:10px;color:#b4b2a9">S1+S2</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#639922;font-weight:500">+5.0%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">12</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">HunterCard TCG</div>
+    <div style="font-size:10px;color:#b4b2a9">S1+S2</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#639922;font-weight:500">+5.0%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">13</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">PokeStop.cl</div>
+    <div style="font-size:10px;color:#b4b2a9">S1+S2</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#639922;font-weight:500">+7.5%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">14</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Outlet TCG</div>
+    <div style="font-size:10px;color:#b4b2a9">S1</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#639922;font-weight:500">+10.0%</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="font-size:16px;min-width:26px;text-align:center"><span style="font-size:11px;font-weight:700;color:#5f5e5a;min-width:20px;display:inline-block;text-align:center">15</span></div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">NianStore</div>
+    <div style="font-size:10px;color:#b4b2a9">S1</div>
+  </div>
+  <span style="font-size:11px;padding:2px 7px;border-radius:10px;background:#EAF3DE;color:#639922;font-weight:500">+10.0%</span>
+</div>
     <div style="padding:8px 10px;font-size:10px;color:#b4b2a9;border-top:.5px solid #f1efe8">
-      S1+S2 = promedio ambas series · S1/S2 = solo una serie disponible
+      S1+S2 = promedio ambas · S1/S2 = una serie disponible
     </div>
   </div>
-
-  <!-- CENTER -->
-  <div class="center-col">
-    <p class="section-label">Resumen general — Series 1</p>
-    <div class="metricas">
-      <div class="metrica"><div class="metrica-label">Tiendas analizadas</div><div class="metrica-valor">43</div></div>
-      <div class="metrica"><div class="metrica-label">Precio más bajo</div><div class="metrica-valor">$18.990</div></div>
-      <div class="metrica"><div class="metrica-label">Precio más alto</div><div class="metrica-valor">$44.990</div></div>
-      <div class="metrica"><div class="metrica-label">Mayor sobreprecio</div><div class="metrica-valor">125.1%</div></div>
+  <div class="cc">
+    <p class="sl">Resumen general — Series 1</p>
+    <div class="met">
+      <div class="m"><div class="ml">Tiendas analizadas</div><div class="mv">43</div></div>
+      <div class="m"><div class="ml">Precio más bajo</div><div class="mv">$18.990</div></div>
+      <div class="m"><div class="ml">Precio más alto</div><div class="mv">$44.990</div></div>
+      <div class="m"><div class="ml">Mayor sobreprecio</div><div class="mv">125.1%</div></div>
     </div>
-
-    <p class="section-label">Selecciona un producto</p>
-    <div class="productos">
-      <div class="product-card">
-        <div class="card-img-wrap">
-          <img src="https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/first_partner_illustration_collection_series_1_1-standard-6fvu4f.jpg" alt="Series 1" onerror="this.style.display='none';this.parentNode.style.background='#2B5797'"/>
-          <span class="card-badge badge-live">✅ Disponible</span>
-        </div>
-        <div class="card-body">
-          <div class="card-series">Illustrator Collection</div>
-          <div class="card-title">First Partner — Series 1</div>
-          <div class="card-meta">
-            <span>📦 Kanto · Sinnoh · Alola</span>
-            <span>🗓 20 mar 2026</span>
-            <span>💲 MSRP: $19.990</span>
-            <span>🏪 43 tiendas</span>
-          </div>
-          <div class="card-btns"><a class="sub-btn" href="series1.html">🇨🇱 Ver precios</a></div>
-        </div>
+    <p class="sl">Selecciona un producto</p>
+    <div class="prods">
+      <div class="pc">
+        <div class="piw"><img src="https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/first_partner_illustration_collection_series_1_1-standard-6fvu4f.jpg" alt="S1" onerror="this.style.display='none';this.parentNode.style.background='#2B5797'"/>
+        <span class="pb pl">✅ Disponible</span></div>
+        <div class="cb"><div class="cs">Illustrator Collection</div><div class="ct">First Partner — Series 1</div>
+        <div class="cm"><span>📦 Kanto · Sinnoh · Alola</span><span>🗓 20 mar 2026</span><span>💲 $19.990</span><span>🏪 43 tiendas</span></div>
+        <div class="cbt"><a class="sb" href="series1.html">🇨🇱 Ver precios</a></div></div>
       </div>
-      <div class="product-card">
-        <div class="card-img-wrap">
-          <img src="https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/p11445_3d_first_partner_illustration_collection_series_2_left_dom_intl_en-3050x3480-19ad4ae-high.jpg" alt="Series 2" onerror="this.style.display='none';this.parentNode.style.background='#3c3289'"/>
-          <span class="card-badge badge-partial">🔄 En recolección</span>
-        </div>
-        <div class="card-body">
-          <div class="card-series">Illustrator Collection</div>
-          <div class="card-title">First Partner — Series 2</div>
-          <div class="card-meta">
-            <span>📦 Johto · Unova · Galar</span>
-            <span>🗓 19 jun 2026</span>
-            <span>💲 MSRP: $19.990</span>
-            <span>🏪 Datos parciales</span>
-          </div>
-          <div class="card-btns">
-            <a class="sub-btn" href="series2esp.html">🇨🇱 Español</a>
-            <a class="sub-btn" href="series2ing.html">🇺🇸 Inglés</a>
-          </div>
-        </div>
+      <div class="pc">
+        <div class="piw"><img src="https://primary.jwwb.nl/public/h/t/i/temp-zjpebgcobmaxydcmrfwb/p11445_3d_first_partner_illustration_collection_series_2_left_dom_intl_en-3050x3480-19ad4ae-high.jpg" alt="S2" onerror="this.style.display='none';this.parentNode.style.background='#3c3289'"/>
+        <span class="pb pp">🔄 En recolección</span></div>
+        <div class="cb"><div class="cs">Illustrator Collection</div><div class="ct">First Partner — Series 2</div>
+        <div class="cm"><span>📦 Johto · Unova · Galar</span><span>🗓 19 jun 2026</span><span>💲 $19.990</span><span>🏪 Datos parciales</span></div>
+        <div class="cbt"><a class="sb" href="series2esp.html">🇨🇱 Español</a><a class="sb" href="series2ing.html">🇺🇸 Inglés</a></div></div>
       </div>
     </div>
     <p style="font-size:10px;color:#b4b2a9;text-align:right">Última actualización: Abril 2026</p>
   </div>
-
-  <!-- RIGHT: Recommended -->
-  <div class="side-card">
-    <div class="side-title">
-      <span style="font-size:20px">⭐</span>
-      <div>
-        <div class="side-title-text">Tiendas Recomendadas</div>
-        <div class="side-subtitle">Mejores opciones para el comprador</div>
-      </div>
-    </div>
+  <div class="sc">
+    <div class="st"><span style="font-size:20px">⭐</span><div>
+      <div class="stt">Tiendas Recomendadas</div><div class="sts">Mejores opciones para el comprador</div>
+    </div></div>
     
-    <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500">Izumi Deji</div>
-        <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Precios destacados para la comunidad</div>
-      </div>
-      <div style="font-size:18px;line-height:1">⭐</div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500">Magicsur</div>
-        <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Bajo MSRP en Series 1, al MSRP en Series 2</div>
-      </div>
-      <div style="font-size:18px;line-height:1">⭐</div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500">Fenix Card Store</div>
-        <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 1</div>
-      </div>
-      <div style="font-size:18px;line-height:1">⭐</div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500">MundoCartas</div>
-        <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 1</div>
-      </div>
-      <div style="font-size:18px;line-height:1">⭐</div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500">top8</div>
-        <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en ambas series</div>
-      </div>
-      <div style="font-size:18px;line-height:1">⭐</div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500">PokeDals</div>
-        <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en ambas series</div>
-      </div>
-      <div style="font-size:18px;line-height:1">⭐</div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500">@Akorgistore</div>
-        <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 2</div>
-      </div>
-      <div style="font-size:18px;line-height:1">⭐</div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500">HunterCard TCG</div>
-        <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 2</div>
-      </div>
-      <div style="font-size:18px;line-height:1">⭐</div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500">Geekers.cl</div>
-        <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 2</div>
-      </div>
-      <div style="font-size:18px;line-height:1">⭐</div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500">Santo Games</div>
-        <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 2</div>
-      </div>
-      <div style="font-size:18px;line-height:1">⭐</div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:500">Arkana TCG</div>
-        <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 2</div>
-      </div>
-      <div style="font-size:18px;line-height:1">⭐</div>
-    </div>
-    <div class="note-box">
-      💡 Tiendas seleccionadas por sus precios justos o por ser conocidas en la comunidad. Izumi Deji es recomendada por la comunidad por sus precios generales destacados.
-    </div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">Izumi Deji</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Precios destacados para la comunidad</div>
   </div>
-
+  <div style="font-size:18px;line-height:1.4">⭐</div>
 </div>
-
-<div class="footer">
-  Hecho con ❤️ para la comunidad Pokémon TCG Chile —
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">Magicsur</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Bajo MSRP en S1, al MSRP en S2</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">Fenix Card Store</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 1</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">MundoCartas</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 1</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">top8 / Top8</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en ambas series</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">PokeDals</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en ambas series</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">PokeStore</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 2</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">MinimarkeTCG</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en S2 ESP</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">@Akorgistore</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en ambas series</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">HunterCard TCG</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 2</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">Geekers.cl</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 2</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">Santo Games</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 2</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-bottom:.5px solid #f1efe8;">
+  <div style="flex:1;min-width:0">
+    <div style="font-size:13px;font-weight:500">Arkana TCG</div>
+    <div style="font-size:11px;color:#5f5e5a;margin-top:1px">Al MSRP en Series 2</div>
+  </div>
+  <div style="font-size:18px;line-height:1.4">⭐</div>
+</div>
+    <div class="nb">💡 Seleccionadas por precios justos o reconocimiento comunitario. Izumi Deji recomendada por la comunidad por sus precios destacados.</div>
+  </div>
+</div>
+<div class="footer">Hecho con ❤️ para la comunidad Pokémon TCG Chile —
   <a href="https://github.com/Sharksimus/pokemon-precios-chile-series1-data" target="_blank">Ver en GitHub</a> — MIT License
-</div>
-
-</body></html>
+</div></body></html>
